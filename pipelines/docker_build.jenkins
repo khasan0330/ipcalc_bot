@@ -25,5 +25,13 @@ pipeline {
                 }
             }
         }
+        stage("docker push") {
+            steps {
+               echo "------------------( push image to hub.docker)-------------------"
+                sh """
+                docker push khdev/ipcalc:latest
+                """
+            }
+        }
     }
 }
