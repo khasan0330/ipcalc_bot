@@ -10,4 +10,4 @@ docker run --name ip_calc -e BOT_TOKEN=your_bot_token  -d khdev/ipcalc
 
 ## Work demonstration
 
-![HEADER](https://github.com/khasan0330/ipcalc_bot/blob/main/png/01.png)
+![HEADER](https://github.com/khasan0330/ipcalc_bot/blob/main/png/example.png)
