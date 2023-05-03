@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    triggers {
+        pollSCM('* * * * *')
+     }
+
     options {
         timestamps()
     }
@@ -33,5 +38,14 @@ pipeline {
                 """
             }
         }
+
+        stage("docker update") {
+            steps {
+                echo "------------------( docker container update)-------------------"
+                sh "ssh root@server 'update_ipcalc_bot'"
+
+            }
+        }
+
     }
 }
