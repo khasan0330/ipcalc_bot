@@ -21,6 +21,11 @@ def command_start(message: Message):
         bot.send_message(message.from_user.id, "Добро пожаловать в бот IP калькулятор, "
                                                "для расчёта необходимо "
                                                "отправить IP адрес в виде: 192.168.100.65/23")
+    elif message.text == '/help':
+        bot.send_message(message.from_user.id, "IP калькулятор, позволит вам быстро и легко "
+                                               "разбить ваши сети на подсети")
+    elif message.text == '/about':
+        bot.send_message(message.from_user.id, "Для справки @KhasanKarabayev")
 
 
 @bot.message_handler(content_types=["text"])
