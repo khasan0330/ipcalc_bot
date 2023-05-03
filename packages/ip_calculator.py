@@ -19,23 +19,29 @@ def is_valid(arg: str):
 
 def calculate_ip(ip):
     """Деление на подсети в бинарном виде"""
-    mask_bin, wildcard_bin = '', ''
     ip_bin = list(map(lambda x: bin(x)[2:].zfill(8), ip[:4]))
     ip_bin = ''.join(ip_bin)
     network_bin = network_bc = network_min = network_max = ip_bin[:ip[-1]]
     for _ in range(32 - ip[-1]):
         network_bin += '0'
+
+    for _ in range(32 - ip[-1]):
         network_bc += '1'
+
+    for _ in range(31 - ip[-1]):
         network_min += '0'
-        network_max += '1'
     else:
         network_min += '1'
+
+    for _ in range(31 - ip[-1]):
+        network_max += '1'
+    else:
         network_max += '0'
 
+    mask_bin = wildcard_bin = ''
     for _ in range(ip[-1]):
         mask_bin += '1'
         wildcard_bin += '0'
-
     while len(mask_bin) < 32:
         mask_bin += '0'
         wildcard_bin += '1'
@@ -78,5 +84,7 @@ def calculate_ip(ip):
 
 
 def subnet_ip(data):
+    """Старт"""
     if res := is_valid(data):
         return calculate_ip(res)
+
