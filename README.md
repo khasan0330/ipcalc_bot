@@ -1,7 +1,7 @@
 # How to use this image
 
 ## start a bot instance
-Мой гугл транслятор для курса python в учебном центре proweb.uz
+
 ```
 docker run --name ip_calc -e BOT_TOKEN=your_bot_token  -d khdev/ipcalc
 ```
